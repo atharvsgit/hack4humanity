@@ -10,20 +10,23 @@
     <header>
         <h1>ResetAndRise</h1>
     </header>
+    
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="services.html">Services</a>
         <a href="success-stories.html">Success Stories</a>
         <a href="#contact">Contact</a>
-    </nav>
-
-    <section class="banner" id="home">
+    
         <div class="accessibility">
             <button onclick="adjustFontSize('increase')">A+</button>
             <button onclick="adjustFontSize('decrease')">A-</button>
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
         </div>
-        <button id="high-contrast-toggle" onclick="toggleContrast()">🌗</button>
+    </nav>
+
+    <section class="banner" id="home">        
         <h2>Empowering Abilities, Creating Opportunities</h2>
         <a href="job-opportunities.html" class="btn">Explore Job Opportunities</a>
 
@@ -43,31 +46,45 @@
             <h3>Employer Support</h3>
             <p>Learn how to create a more inclusive workplace for all.</p>
         </div>
+        <div class="card">
+            <h3>Employer Support</h3>
+            <p>Learn how to create a more inclusive workplace for all.</p>
+        </div>
+        <div class="card">
+            <h3>Employer Support</h3>
+            <p>Learn how to create a more inclusive workplace for all.</p>
+        </div>
+        <div class="card">
+            <h3>Employer Support</h3>
+            <p>Learn how to create a more inclusive workplace for all.</p>
+        </div>
     </section>
     <footer>
         <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
     </footer>
 
     <div id="chatbot">
-        <div id="chatbot-header">Voice Chatbot</div>
+        <div id="chatbot-header">
+            Chatbot
+            <button id="chatbot-close" onclick="closeChatbot()">X</button>
+        </div>
         <div id="chatbot-messages"></div>
         <div id="chatbot-input">
-            <textarea id="chatbot-text" placeholder="Type a message..." aria-label="Chat Input"></textarea>
+            <textarea id="chatbot-text" placeholder="Type your message..."></textarea>
             <button onclick="sendMessage()">Send</button>
             <button onclick="startVoiceInput()">🎤</button>
+
         </div>
     </div>
-    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <button id="chatbot-toggle" onclick="toggleChatbot()">Chat</button>    
 
     <footer id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@disabilityemployment.org</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Address: 123 Opportunity Lane, Inclusion City</p>
-        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
+        <p>Email: </p>
+        <p>Phone: </p>
+        <p>Address: </p>
+        <p>&copy; ResetAndRise. All Rights Reserved.</p>
     </footer>
-    
-
     <script src="script.js"></script>
 </body>
 </html>

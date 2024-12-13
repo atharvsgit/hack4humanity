@@ -6,30 +6,68 @@ body {
     background-color: #f8f9fa;
     color: #333;
 }
+
+
 header {
     background: #007bff;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    position: fixed; /* Keep the header fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
+body {
+    margin-top: 85px; /* Add margin to account for the fixed header */
+}
+
+
 header h1 {
     margin: 0;
 }
+
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background: #0056b3;
     padding: 0.5rem;
 }
+
 nav a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     font-size: 1rem;
 }
+
 nav a:hover {
     text-decoration: underline;
 }
+
+.accessibility {
+    display: flex;
+    gap: 10px;
+}
+
+.accessibility button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.accessibility button:hover {
+    background: #0056b3;
+}
+
+
 .banner {
     text-align: center;
     padding: 2rem;
@@ -51,54 +89,46 @@ nav a:hover {
 .btn:hover {
     background: #0056b3;
 }
-/* .accessibility {
-    margin-top: 1rem;
-}
-.accessibility button {
-    margin: 0 5px;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-} */
 
-.accessibility {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    flex-direction: row;
-}
 
-.accessibility button {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .content {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
     padding: 2rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
 }
+
+
+
+.content::-webkit-scrollbar {
+    height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #e9ecef;
+}
+
+
 .card {
+    flex: 0 0 auto; 
     background: white;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 1rem;
-    width: 30%;
+    width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
 }
+
+
 footer {
     background: #343a40;
     color: white;
@@ -173,38 +203,118 @@ footer {
 #chatbot-close {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 10px;
     background: #ff0000;
-    color: white;
+    color: #fff;
     border: none;
     padding: 5px 10px;
-    cursor: pointer;
     border-radius: 5px;
-}
-
-.high-contrast {
-    background-color: #000;
-    color: #fff;
-}
-.high-contrast a {
-    color: #00f;
+    cursor: pointer;
 }
 
 
 
-#high-contrast-toggle {
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+
+
+.mode-buttons {
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.mode-buttons button {
+    width: 120px;
     height: 40px;
     font-size: 0.9rem;
-    margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.mode-buttons button:hover {
+    opacity: 0.9;
+}
+
+#light-mode-btn {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+#dark-mode-btn {
+    background-color: #343a40;
+    color: #fff;
+}
+
+
+
+.dark-mode {
+    background-color: #121212; 
+    color: #ffffff; 
+}
+
+.dark-mode a {
+    color: #90caf9; 
+}
+
+
+.dark-mode header,
+.dark-mode nav {
+    background-color: #1f1f1f;
+    color: #ffffff;
+
+}
+
+.dark-mode nav a {
+    color: #ffffff; 
+}
+
+.dark-mode nav a:hover {
+    text-decoration: underline; 
+}
+
+.dark-mode .card {
+    background-color: #444; 
+    color: #ffffff; 
+    border: 1px solid #333; 
+}
+
+
+.dark-mode footer,
+.dark-mode #chatbot {
+    background-color: #1f1f1f; 
+    color: #ffffff;
+}
+
+.dark-mode .banner {
+    background-color: gray;
+}
+
+.dark-mode .btn {
+    background-color: #000;
+    color: #fff;
+}
+.dark-mode #chatbot-header,
+.dark-mode #chatbot-toggle,
+.dark-mode #chatbot-input textarea,
+.dark-mode #chatbot-input button {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444; 
 }
 

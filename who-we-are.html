@@ -21,61 +21,34 @@
             justify-content: center;
         }
 
-        .photo-card {
-            width: 200px;
-            text-align: center;
-        }
-
-        .photo-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        nav {
-            background-color: #f4f4f4;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #007BFF;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Who We Are</h1>
-        <nav>
+        
+    </header>
+    
+    <nav>
+        <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
+            <div class="dropdown">
+                <a href="who-we-are.html" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="who-we-are.html">Who We Are</a>
+                    <a href="financial-report.html">Financial Report</a>
+                    <a href="news-bulletin.html">News Bulletin</a>
+                </div>
+            </div>
             <a href="services.html">Services</a>
             <a href="success-stories.html">Success Stories</a>
-            <a href="who-we-are.html">Who We Are</a>
-        </nav>
-    </header>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="accessibility">
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
+        </div>
+    </nav>
     <main>
         <section class="section">
             <h2>Slogan</h2>

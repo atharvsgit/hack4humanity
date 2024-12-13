@@ -17,17 +17,17 @@
             };
             
             speechRecognition.onend = () => {
-                askUser(); // Retry asking the question if needed
+                askUser();
             };
             
-            // Function to ask user if they are a Job Seeker or Job Provider
+            
             function askUser() {
                 const speech = new SpeechSynthesisUtterance("Are you a job seeker or a job provider?");
                 window.speechSynthesis.speak(speech);
                 speechRecognition.start();
             }
 
-            // Function to handle user response
+            
             function handleResponse(response) {
                 if (response === "job seeker") {
                     window.location.href = "index.html";
@@ -36,11 +36,11 @@
                 } else {
                     const errorSpeech = new SpeechSynthesisUtterance("I'm sorry, I didn't understand that. Please say 'job seeker' or 'job provider'.");
                     window.speechSynthesis.speak(errorSpeech);
-                    askUser(); // Retry asking the question
+                    askUser(); 
                 }
             }
 
-            // Ask user on page load
+            
             askUser();
         });
     </script>

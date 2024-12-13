@@ -13,15 +13,15 @@ header {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
-    position: fixed; /* Keep the header fixed at the top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    transition: transform 0.3s ease-in-out;
 }
 body {
-    margin-top: 85px; /* Add margin to account for the fixed header */
+    margin-top: 85px;
 }
 
 
@@ -32,18 +32,18 @@ header h1 {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space between left and right sections */
+    justify-content: space-between;
     background: #0056b3;
     padding: 0.5rem;
-    position: relative; /* Allow absolute positioning for centering */
+    position: relative;
 }
 
 nav .nav-links {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Perfectly center links horizontally */
+    transform: translateX(-50%);
     display: flex;
-    gap: 20px; /* Space between links */
+    gap: 20px;
 }
 
 nav a {
@@ -359,3 +359,6 @@ footer {
     border: 1px solid #444; 
 }
 
+footer p a{
+    color: red;
+}

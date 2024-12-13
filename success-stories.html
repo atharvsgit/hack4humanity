@@ -8,11 +8,27 @@
 </head>
 <body>
     <header>
-        <h1>Success Stories</h1>
+        <h1>ResetAndRise</h1>
     </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="who-we-are.html" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="who-we-are.html">Who We Are</a>
+                    <a href="financial-report.html">Financial Report</a>
+                    <a href="news-bulletin.html">News Bulletin</a>
+                </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="success-stories.html">Success Stories</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="accessibility">
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
+        </div>
     </nav>
     <section class="content">
         <div class="card">
@@ -30,10 +46,11 @@
     </section>
     <footer id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@disabilityemployment.org</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Address: 123 Opportunity Lane, Inclusion City</p>
-        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
+        <p>Email: <a href="">xyz@rr.com</a></p>
+        <p>Phone: <a href="">999999999</a></p>
+        <p>Address: Bangalore </p>
+        <p>&copy; ResetAndRise. All Rights Reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -24,18 +24,11 @@
 
         nav {
             display: flex;
-            justify-content: center;
             background-color: #0056b3;
             padding: 1rem;
+            margin-top: 80px;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            margin: 0 15px;
-            font-size: 1rem;
-        }
 
         nav a:hover {
             background-color: #007bff;
@@ -73,42 +66,6 @@
         }
 
         .form-container {
-            max-width: 800px; /* Increased width */
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container input, .form-container button {
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .form-container button {
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background: #0056b3;
-        }
-
-        .form-container label {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-container input {
-            font-size: 1rem;
-        }
-        .form-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
@@ -118,7 +75,7 @@
         }
 
         .form-container input, .form-container button {
-            width: 70%;  /* Reduced width to make inputs narrower */
+            width: 70%;
             padding: 1rem;
             margin: 1rem 0;
             border: 1px solid #ddd;
@@ -149,20 +106,35 @@
             font-size: 1rem;
         }
 
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Our Services</h1>
+        <h1>ResetAndRise</h1>
     </header>
-
-    <!-- Navigation Bar -->
+    
     <nav>
-        <a href="index.html">Home</a>
-        <a href="#post-jobs">Post Jobs</a>
-        <a href="#seek-jobs">Seek Jobs</a>
-        <a href="#upskill">Upskill</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="who-we-are.html" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="who-we-are.html">Who We Are</a>
+                    <a href="financial-report.html">Financial Report</a>
+                    <a href="news-bulletin.html">News Bulletin</a>
+                </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="success-stories.html">Success Stories</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="accessibility">
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
+        </div>
     </nav>
+    
 
     <!-- Post Job Opportunities Section -->
     <section id="post-jobs" class="service-section">
@@ -183,29 +155,14 @@
                 <button type="submit">Submit Job</button>
             </form>
         </div>
-        
-    </section>
-
-    <!-- Seek Job Opportunities Section -->
-    <section id="seek-jobs" class="service-section">
-        <h2>Seek Job Opportunities</h2>
-        <p>Explore a variety of inclusive job opportunities. Click the button below to view available positions.</p>
-        <a href="job-opportunities.html" class="btn">Explore Job Opportunities</a>
-    </section>
-
-    <!-- Learn New Skills Section -->
-    <section id="upskill" class="service-section">
-        <h2>Learn New Skills</h2>
-        <p>Access a variety of video lectures and resources to enhance your skills and employability.</p>
-        <a href="https://www.example.com/video-lectures" target="_blank" class="btn">Start Learning</a>
     </section>
 
     <footer id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@disabilityemployment.org</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Address: 123 Opportunity Lane, Inclusion City</p>
-        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
+        <p>Email: <a href="mailto:xyz@rr.com">xyz@rr.com</a></p>
+        <p>Phone: <a href="tel:999999999">999999999</a></p>
+        <p>Address: Bangalore</p>
+        <p>&copy; ResetAndRise. All Rights Reserved.</p>
     </footer>
 </body>
 </html>

@@ -1,12 +1,4 @@
-function adjustFontSize(action) {
-    const body = document.body;
-    let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
-    if (action === 'increase') {
-        body.style.fontSize = (currentSize + 1) + 'px';
-    } else if (action === 'decrease') {
-        body.style.fontSize = (currentSize - 1) + 'px';
-    }
-}
+
 
 function setLightMode() {
     document.body.className = 'light-mode';
@@ -39,9 +31,9 @@ window.addEventListener('scroll', () => {
     const currentScrollPosition = window.pageYOffset;
 
     if (currentScrollPosition > previousScrollPosition) {
-        header.style.transform = 'translateY(-100%)'; // Hide header
+        header.style.transform = 'translateY(-100%)'; 
     } else {
-        header.style.transform = 'translateY(0)'; // Show header
+        header.style.transform = 'translateY(0)'; 
     }
     previousScrollPosition = currentScrollPosition;
 });

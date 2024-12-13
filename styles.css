@@ -393,3 +393,52 @@ footer {
 footer p a{
     color: red;
 }
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .accessibility {
+        margin-top: 1rem;
+        flex-direction: row;
+        /* justify-content: space-between; */
+        width: 100%;
+    }
+
+    .job-list {
+        padding: 0.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    .job-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    #chatbot {
+        width: 100%;
+        height: auto;
+    }
+
+    #chatbot-messages {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+}

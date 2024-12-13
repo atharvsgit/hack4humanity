@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResetAndRise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ResetAndRise</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="banner" id="home">
+        <div class="accessibility">
+            <button onclick="adjustFontSize('increase')">A+</button>
+            <button onclick="adjustFontSize('decrease')">A-</button>
+        </div>
+        <button id="high-contrast-toggle" onclick="toggleContrast()">🌗</button>
+        <h2>Empowering Abilities, Creating Opportunities</h2>
+        <a href="job-opportunities.html" class="btn">Explore Job Opportunities</a>
+
+    </section>
+    
+
+    <section class="content" id="services">
+        <div class="card">
+            <h3>Job Matching</h3>
+            <p>Find inclusive job opportunities tailored to your skills and abilities.</p>
+        </div>
+        <div class="card">
+            <h3>Skill Development</h3>
+            <p>Access free training programs to enhance your employability.</p>
+        </div>
+        <div class="card">
+            <h3>Employer Support</h3>
+            <p>Learn how to create a more inclusive workplace for all.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
+    </footer>
+
+    <div id="chatbot">
+        <div id="chatbot-header">Voice Chatbot</div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input">
+            <textarea id="chatbot-text" placeholder="Type a message..." aria-label="Chat Input"></textarea>
+            <button onclick="sendMessage()">Send</button>
+            <button onclick="startVoiceInput()">🎤</button>
+        </div>
+    </div>
+    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@disabilityemployment.org</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 Opportunity Lane, Inclusion City</p>
+        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

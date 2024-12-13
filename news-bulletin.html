@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Bulletin</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            height: calc(100vh - 120px); /* Adjust for header and footer */
+            overflow-y: scroll;
+        }
+
+        .news-item {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 400px; /* Set consistent height for all news items */
+        }
+
+        .news-item:hover {
+            transform: scale(1.05);
+        }
+
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .news-item h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .news-item p {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+            flex-grow: 1; /* Makes the description flexible */
+        }
+
+        .news-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .news-item a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 16px;
+        }
+
+        nav{
+            margin-top: 11vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        News Bulletin
+    </header>
+    <nav>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="who-we-are.html" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="who-we-are.html">Who We Are</a>
+                    <a href="financial-report.html">Financial Report</a>
+                    <a href="news-bulletin.html">News Bulletin</a>
+                </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="success-stories.html">Success Stories</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="accessibility">
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
+        </div>
+        
+    </nav>
+
+    <main>
+        <div class="news-item">
+            <img src="https://d3rds0a9qm8vc5.cloudfront.net/live.enableindia.org/print.1723440515007.png" alt="News 1">
+            <p>If the government decides to go ahead with colour coding in disability certification, it should be based on the level of accreditation instead of the level of disability.</p>
+            <a href="https://theprint.in/opinion/new-disability-quota-rules-can-make-life-harder-for-pwds-burden-govt-medical-systems/2215875/">Read More</a>
+        </div>
+        <div class="news-item">
+            <img src="https://d3rds0a9qm8vc5.cloudfront.net/live.enableindia.org/udayavani.1707972346643.png" alt="News 2">
+            <p>Almost four months ago, ride-hailing app Namma Yatri launched the ‘Purple Rides’ initiative in partnership with one of us. Since then, over 16,000 rickshaw drivers have completed more than 40,000 accessible rides and have earned over 60 Lakh. We are humbled and grateful to note this level of adoption.</p>
+            <a href="https://english.udayavani.com/article/namma-yatri-ways-forward-for-accessible-ride-hailing/1599041">Read More</a>
+        </div>
+        <div class="news-item">
+            <img src="https://d3rds0a9qm8vc5.cloudfront.net/live.enableindia.org/samarth_ndtv.1707971958880.png" alt="News 3">
+            <p>This Valentines’ Day, Jyoti and Roopesh from Bengaluru, share their journey as a couple, fighting the challenges posed by their disabilities</p>
+            <a href="https://samarth.ndtv.com/breaking-the-shackles-of-disabilities-this-couple-is-redefining-happy-marriage-869/">Read More</a>
+        </div>
+        <div class="news-item">
+            <img src="https://d3rds0a9qm8vc5.cloudfront.net/live.enableindia.org/toi_logo_box.1650867397599.webp" alt="News 4">
+            <p>Moving on his wheelchair amid the bustling International Purple Fest, Prateek Khandelwal is a man on a mission to make public spaces accessible. From Bengaluru, Prateek, who is just in his 30s, is trying to give Goa a glimpse of what a well made ramp must feel like for a wheelchair user.</p>
+            <a href="https://timesofindia.indiatimes.com/city/goa/wheel-power-bluru-man-on-a-mission-to-ramp-up-panaji/articleshow/106739948.cms">Read More</a>
+        </div>
+        <div class="news-item">
+            <img src="https://res.cloudinary.com/people-matters/image/upload/h_88,w_188,c_lpad,f_auto,q_auto/Logo-2.0.jpg" alt="News 5">
+            <p>How COVID-19 has fared for persons with disabilities: International Day of Disabled Persons 2020</p>
+            <a href="https://www.peoplematters.in/article/diversity/how-covid-19-has-fared-for-persons-with-disabilities-international-day-of-disabled-persons-2020-27781">Read More</a>
+        </div>
+        <div class="news-item">
+            <img src="https://d3rds0a9qm8vc5.cloudfront.net/live.enableindia.org/businessline.1698121706644.png" alt="News 6">
+            <p>How India Inc is rethinking inclusion during pandemic</p>
+            <a href="https://www.thehindubusinessline.com/news/developing-a-purple-economy-for-disability-inclusion/article67449087.ece">Read More</a>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    
+</body>
+</html>

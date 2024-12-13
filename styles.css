@@ -396,7 +396,7 @@ footer p a{
 
 @media (max-width: 768px) {
     body nav{
-        height: 10vh;
+        height: 12vh;
         display: flex;
         flex-direction: column;
         align-items: center;

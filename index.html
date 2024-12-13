@@ -3,95 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResetAndRise</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Job Assistance Portal</title>
+    <link rel="stylesheet" href="style-lp.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const speechRecognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            speechRecognition.continuous = false;
+            speechRecognition.lang = 'en-US';
+            
+            speechRecognition.onresult = (event) => {
+                const spokenText = event.results[0][0].transcript.toLowerCase().trim();
+                handleResponse(spokenText);
+            };
+            
+            speechRecognition.onend = () => {
+                askUser();
+            };
+            
+            
+            function askUser() {
+                const speech = new SpeechSynthesisUtterance("Are you a job seeker or a job provider?");
+                window.speechSynthesis.speak(speech);
+                speechRecognition.start();
+            }
+
+            
+            function handleResponse(response) {
+                if (response === "job seeker") {
+                    window.location.href = "home.html";
+                } else if (response === "job provider") {
+                    window.location.href = "services.html";
+                } else {
+                    const errorSpeech = new SpeechSynthesisUtterance("I'm sorry, I didn't understand that. Please say 'job seeker' or 'job provider'.");
+                    window.speechSynthesis.speak(errorSpeech);
+                    askUser(); 
+                }
+            }
+
+            
+            askUser();
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>ResetAndRise</h1>
+        <h1>Welcome to the Job Assistance Portal</h1>
     </header>
-    
-    <nav>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <div class="dropdown">
-                <a href="who-we-are.html" class="dropbtn">About Us</a>
-                <div class="dropdown-content">
-                    <a href="who-we-are.html">Who We Are</a>
-                    <a href="financial-report.html">Financial Report</a>
-                    <a href="news-bulletin.html">News Bulletin</a>
-                </div>
-            </div>
-            <a href="services.html">Services</a>
-            <a href="success-stories.html">Success Stories</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="accessibility">
-            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
-            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
-        </div>
-    </nav>
-    
-
-    <section class="banner" id="home">        
-        <h2>Empowering Abilities, Creating Opportunities</h2>
-        <a href="job-opportunities.html" class="btn">Explore Job Opportunities</a>
-
-    </section>
-    
-
-    <section class="content" id="services">
-        <div class="card">
-            <h3>Job Matching</h3>
-            <p>Find inclusive job opportunities tailored to your skills and abilities.</p>
-        </div>
-        <div class="card">
-            <h3>Skill Development</h3>
-            <p>Access free training programs to enhance your employability.</p>
-        </div>
-        <div class="card">
-            <h3>Employer Support</h3>
-            <p>Learn how to create a more inclusive workplace for all.</p>
-        </div>
-        <div class="card">
-            <h3>Employer Support</h3>
-            <p>Learn how to create a more inclusive workplace for all.</p>
-        </div>
-        <div class="card">
-            <h3>Employer Support</h3>
-            <p>Learn how to create a more inclusive workplace for all.</p>
-        </div>
-        <div class="card">
-            <h3>Employer Support</h3>
-            <p>Learn how to create a more inclusive workplace for all.</p>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2024 NGO for Disability Employment. All Rights Reserved.</p>
-    </footer>
-
-    <div id="chatbot">
-        <div id="chatbot-header">
-            Chatbot
-            <button id="chatbot-close" onclick="closeChatbot()">X</button>
-        </div>
-        <div id="chatbot-messages"></div>
-        <div id="chatbot-input">
-            <textarea id="chatbot-text" placeholder="Type your message..."></textarea>
-            <button onclick="sendMessage()">Send</button>
-            <button onclick="startVoiceInput()">🎤</button>
-
+    <div class="content">
+        <h2>Connecting Opportunities with Talent</h2>
+        <p>We are here to empower disabled and underprivileged individuals by connecting them with suitable job opportunities. 
+        Select an option below to take the first step:</p>
+        <div class="button-container">
+            <a href="home.html" class="button" tabindex="0" onclick="handleClick('job seeker')">I am a Job Seeker</a>
+            <a href="services.html" class="button" tabindex="0" onclick="handleClick('job provider')">I am a Job Provider</a>
         </div>
     </div>
-    <button id="chatbot-toggle" onclick="toggleChatbot()">Chat</button>    
-
-    <footer id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="">xyz@rr.com</a></p>
-        <p>Phone: <a href="">999999999</a></p>
-        <p>Address: Bangalore </p>
-        <p>&copy; ResetAndRise. All Rights Reserved.</p>
+    <footer>
+        &copy; 2024 Job Assistance Portal. All rights reserved.
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        function handleClick(role) {
+            try{
+                const speech = new SpeechSynthesisUtterance(`You chose ${role}. Proceeding to ${role} section.`);
+            window.speechSynthesis.speak(speech);
+            if (role === 'job seeker') {
+                window.location.href = "home.html";
+            } else if (role === 'job provider') {
+                window.location.href = "services.html";
+            } else {
+                const errorSpeech = new SpeechSynthesisUtterance("Invalid choice, please try again.");
+                window.speechSynthesis.speak(errorSpeech);
+            }
+            }
+            catch(e){
+                console.log(e)
+            }
+            
+        }
+    </script>
 </body>
 </html>

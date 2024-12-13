@@ -31,16 +31,24 @@ header h1 {
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between; /* Space between left and right sections */
     background: #0056b3;
     padding: 0.5rem;
+    position: relative; /* Allow absolute positioning for centering */
+}
+
+nav .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Perfectly center links horizontally */
+    display: flex;
+    gap: 20px; /* Space between links */
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
     font-size: 1rem;
 }
 
@@ -52,6 +60,8 @@ nav a:hover {
     display: flex;
     gap: 10px;
 }
+
+
 
 .accessibility button {
     background: #007bff;

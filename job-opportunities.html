@@ -49,6 +49,28 @@
         .btn-apply:hover {
             background: #0056b3;
         }
+        header {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 80px;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode .job-card {
+            background-color: grey;
+            color: white;
+        }
+
+        body.dark-mode .btn-apply {
+            background-color: #444;
+        }
     </style>
 </head>
 <body>
@@ -56,10 +78,24 @@
         <h1>Job Opportunities</h1>
     </header>
     <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="success-stories.html">Success Stories</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="who-we-are.html" class="dropbtn">About Us</a>
+                <div class="dropdown-content">
+                    <a href="who-we-are.html">Who We Are</a>
+                    <a href="financial-report.html">Financial Report</a>
+                    <a href="news-bulletin.html">News Bulletin</a>
+                </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="success-stories.html">Success Stories</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="accessibility">
+            <button id="light-mode-btn" onclick="setLightMode()">Light</button>
+            <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
+        </div>
     </nav>
     <section class="job-list">
         <h2>Current Job Openings</h2>
@@ -92,5 +128,6 @@
         <p>Address: Bangalore </p>
         <p>&copy; ResetAndRise. All Rights Reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

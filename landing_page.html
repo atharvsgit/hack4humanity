@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Assistance Portal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(51, 105, 30, 0.9);
+            color: white;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .content {
+            margin: 50px auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            flex-grow: 1;
+        }
+        .content h2 {
+            color: #33691e;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .button {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            padding: 40px;
+            font-size: 1.4rem;
+            color: white;
+            background: #1b5e20;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .button:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            background-color: rgba(51, 105, 30, 0.9);
+            color: white;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const speechRecognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            speechRecognition.continuous = false;
+            speechRecognition.lang = 'en-US';
+            
+            speechRecognition.onresult = (event) => {
+                const spokenText = event.results[0][0].transcript.toLowerCase().trim();
+                handleResponse(spokenText);
+            };
+            
+            speechRecognition.onend = () => {
+                askUser(); // Retry asking the question if needed
+            };
+            
+            // Function to ask user if they are a Job Seeker or Job Provider
+            function askUser() {
+                const speech = new SpeechSynthesisUtterance("Are you a job seeker or a job provider?");
+                window.speechSynthesis.speak(speech);
+                speechRecognition.start();
+            }
+
+            // Function to handle user response
+            function handleResponse(response) {
+                if (response === "job seeker") {
+                    window.location.href = "job-seeker.html";
+                } else if (response === "job provider") {
+                    window.location.href = "job-provider.html";
+                } else {
+                    const errorSpeech = new SpeechSynthesisUtterance("I'm sorry, I didn't understand that. Please say 'job seeker' or 'job provider'.");
+                    window.speechSynthesis.speak(errorSpeech);
+                    askUser(); // Retry asking the question
+                }
+            }
+
+            // Ask user on page load
+            askUser();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Job Assistance Portal</h1>
+    </header>
+    <div class="content">
+        <h2>Connecting Opportunities with Talent</h2>
+        <p>We are here to empower disabled and underprivileged individuals by connecting them with suitable job opportunities. 
+        Select an option below to take the first step:</p>
+        <div class="button-container">
+            <a href="job-seeker.html" class="button" tabindex="0" onclick="handleClick('job seeker')">I am a Job Seeker</a>
+            <a href="job-provider.html" class="button" tabindex="0" onclick="handleClick('job provider')">I am a Job Provider</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Job Assistance Portal. All rights reserved.
+    </footer>
+
+    <script>
+        function handleClick(role) {
+            const speech = new SpeechSynthesisUtterance(`You chose ${role}. Proceeding to ${role} section.`);
+            window.speechSynthesis.speak(speech);
+            if (role === 'job seeker') {
+                window.location.href = "job-seeker.html";
+            } else if (role === 'job provider') {
+                window.location.href = "job-provider.html";
+            } else {
+                const errorSpeech = new SpeechSynthesisUtterance("Invalid choice, please try again.");
+                window.speechSynthesis.speak(errorSpeech);
+            }
+        }
+    </script>
+</body>
+</html>

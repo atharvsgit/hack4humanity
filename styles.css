@@ -359,7 +359,7 @@ footer {
     background-color: #1f1f1f; 
     color: #ffffff;
 }
-
+.dark-mode,
 .dark-mode .banner {
     background-color: gray;
 }
@@ -375,6 +375,19 @@ footer {
     background-color: #333;
     color: #ffffff;
     border: 1px solid #444; 
+}
+.dark-mode .dropdown-content {
+    background-color: #333; 
+    color: #fff; 
+    border: 1px solid #444; 
+}
+
+.dark-mode .dropdown-content a {
+    color: #ddd; 
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #555; 
 }
 
 footer p a{

@@ -105,6 +105,70 @@
         .form-container input {
             font-size: 1rem;
         }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark-mode header {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        .dark-mode nav {
+            background-color: #1f1f1f;
+        }
+
+        .dark-mode nav a {
+            color: #ffffff;
+        }
+
+        .dark-mode nav a:hover {
+            background-color: #333;
+        }
+
+        .dark-mode .dropdown-content {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .dropdown-content a {
+            color: #ddd;
+        }
+
+        .dark-mode .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dark-mode .service-section {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .form-container {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .dark-mode .form-container input, 
+        .dark-mode .form-container button {
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .form-container button:hover {
+            background-color: #555;
+        }
+
+        .dark-mode footer {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        .dark-mode footer a {
+            color: #90caf9;
+        }
 
 
     </style>
@@ -133,6 +197,7 @@
             <button id="light-mode-btn" onclick="setLightMode()">Light</button>
             <button id="dark-mode-btn" onclick="setDarkMode()">Dark</button>
         </div>
+        
     </nav>
     
 
@@ -163,5 +228,15 @@
         <p>Address: Bangalore</p>
         <p>&copy; ResetAndRise. All Rights Reserved.</p>
     </footer>
+    <script>
+        function setLightMode() {
+            document.body.classList.remove('dark-mode');
+        }
+    
+        function setDarkMode() {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
 </body>
 </html>

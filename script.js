@@ -41,17 +41,39 @@ window.addEventListener('scroll', () => {
 function toggleChatbot() {
     const chatbot = document.getElementById('chatbot');
     const chatbotToggle = document.getElementById('chatbot-toggle');
-    
+    const messages = document.getElementById('chatbot-messages');
+
     chatbot.style.display = 'flex';
     chatbotToggle.style.display = 'none';
+
+    messages.innerHTML = '';
+    const prompts = ['Find a job', 'Post a job', 'Donate', 'Change theme'];
+    prompts.forEach((prompt) => {
+        const promptBubble = document.createElement('div');
+        promptBubble.textContent = prompt;
+        promptBubble.style.background = '#f1f1f1';
+        promptBubble.style.padding = '10px';
+        promptBubble.style.margin = '5px 0';
+        promptBubble.style.borderRadius = '10px';
+        promptBubble.style.cursor = 'pointer';
+        promptBubble.style.alignSelf = 'flex-start';
+        promptBubble.addEventListener('click', () => handlePrompt(prompt));
+        messages.appendChild(promptBubble);
+    });
 }
 
-function closeChatbot() {
-    const chatbot = document.getElementById('chatbot');
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    
-    chatbot.style.display = 'none';
-    chatbotToggle.style.display = 'block';
+function handlePrompt(prompt) {
+    const pages = {
+        'Find a job': 'job-opportunities.html',
+        'Post a job': 'services.html',
+        'Donate': 'donate.html',
+    };
+
+    if (pages[prompt]) {
+        window.location.href = pages[prompt]; 
+    } else if (prompt === 'Change theme') {
+        setDarkMode(); 
+    }
 }
 
 function sendMessage() {
@@ -72,38 +94,59 @@ function sendMessage() {
         messages.scrollTop = messages.scrollHeight;
 
         textInput.value = '';
-        setTimeout(() => {
-            const botBubble = document.createElement('div');
-            botBubble.textContent = "I'm here to assist you!";
-            botBubble.style.background = '#e9ecef';
-            botBubble.style.padding = '10px';
-            botBubble.style.margin = '5px 0';
-            botBubble.style.borderRadius = '10px';
-            botBubble.style.alignSelf = 'flex-start';
-            messages.appendChild(botBubble);
-            messages.scrollTop = messages.scrollHeight;
-        }, 1000);
+
+        setTimeout(() => handlePrompt(userMessage), 500);
     }
 }
+
+
+function closeChatbot() {
+    const chatbot = document.getElementById('chatbot');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    
+    chatbot.style.display = 'none';
+    chatbotToggle.style.display = 'block';
+}
+
 
 function startVoiceInput() {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'en-US';
     recognition.start();
 
-    recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
+    recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript.trim().toLowerCase();
         document.getElementById('chatbot-text').value = transcript;
+
         sendMessage();
+
+        handleSpokenPrompt(transcript);
     };
 
-    recognition.onerror = function(event) {
-        const errorMessage = event.error === 'no-speech' 
-            ? 'No speech detected. Please try again.' 
+    recognition.onerror = function (event) {
+        const errorMessage = event.error === 'no-speech'
+            ? 'No speech detected. Please try again.'
             : 'Speech recognition failed. Error: ' + event.error;
         alert(errorMessage);
     };
 }
+
+function handleSpokenPrompt(transcript) {
+    const prompts = {
+        'find a job': 'job-opportunities.html',
+        'post a job': 'services.html',
+        'donate': 'donate.html',
+    };
+
+    if (prompts[transcript]) {
+        window.location.href = prompts[transcript];
+    } else if (transcript === 'change theme') {
+        setDarkMode(); 
+    } else {
+        alert("Sorry, I didn't understand that. Please try again.");
+    }
+}
+
 
 function speakText(text) {
     const speechSynthesis = window.speechSynthesis;

@@ -221,6 +221,10 @@ footer {
     max-height: 200px;
 }
 
+.dark-mode #chatbot-messages  div{
+    color:#000;
+}
+
 #chatbot-input {
     display: flex;
     border-top: 1px solid #ddd;

@@ -77,6 +77,20 @@ nav a:hover {
     background: #0056b3;
 }
 
+.donate-btn {
+    background-color: #FFD700;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.donate-btn:hover {
+    background-color: #FFC107;
+}
 
 .banner {
     text-align: center;

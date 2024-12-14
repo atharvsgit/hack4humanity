@@ -8,35 +8,25 @@ function setDarkMode() {
     document.body.className = 'dark-mode';
 }
 
-function autoScrollContent() {
-    const content = document.querySelector('.content');
-    const scrollAmount = content.offsetWidth / 3; 
-    let scrollLeft = 0;
+  const scrollContainer = document.querySelector('.content');
+  let scrollAmount = 0;
+  const scrollStep = 220;
+  const intervalTime = 4000;
 
-    setInterval(() => {
-        scrollLeft += scrollAmount;
-        if (scrollLeft >= content.scrollWidth - content.offsetWidth) {
-            scrollLeft = 0; 
-        }
-        content.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth',
-        });
-    }, 4000); 
-}
-
-let previousScrollPosition = window.pageYOffset;
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const currentScrollPosition = window.pageYOffset;
-
-    if (currentScrollPosition > previousScrollPosition) {
-        header.style.transform = 'translateY(-100%)'; 
-    } else {
-        header.style.transform = 'translateY(0)'; 
+  function autoScroll() {
+    scrollAmount += scrollStep;
+    if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+      scrollAmount = 0; 
     }
-    previousScrollPosition = currentScrollPosition;
-});
+    scrollContainer.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  setInterval(autoScroll, intervalTime);
+
+
 
 function toggleChatbot() {
     const chatbot = document.getElementById('chatbot');
